@@ -16,6 +16,12 @@ targets:
         parameters:
             - SAMPLE_SIZE=16
 
+parameters:
+    SAMPLE_SIZE:
+        datatype: int
+        description: Number of bits per sample
+        paramtype: vlogparam
+
 provider:
     name : github
     user : klasnordmark
