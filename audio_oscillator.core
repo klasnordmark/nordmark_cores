@@ -1,0 +1,23 @@
+CAPI=2:
+name : nordmark:synth:audio_oscillator:0.1.0
+description : A simple saw- and square wave audio oscillator
+
+filesets:
+    rtl:
+        files:
+            - rtl/audio_oscillator.v
+        file_type: verilogSource
+
+targets:
+    default: &default
+        filesets:
+            - rtl
+        toplevel: audio_oscillator
+        parameters:
+            - SAMPLE_SIZE=16
+
+provider:
+    name : github
+    user : klasnordmark
+    repo : audio_oscillator
+    version : v0.1.0
