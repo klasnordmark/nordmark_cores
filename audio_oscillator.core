@@ -5,7 +5,7 @@ descriptionno: A simple saw- and square wave audio oscillator
 filesets:
     rtl:
         files:
-            - rtl/audio_oscillator.v
+            - src/rtl/audio_oscillator.v
         file_type: verilogSource
 
 targets:
