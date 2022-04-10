@@ -1,12 +1,17 @@
 CAPI=2:
 name : nordmark:synth:audio_oscillator:0.1.0
-descriptionno: A simple saw- and square wave audio oscillator
+description: A simple saw- and square wave audio oscillator
 
 filesets:
     rtl:
         files:
             - src/rtl/audio_oscillator.v
         file_type: verilogSource
+
+    formal:
+        files:
+            - src/formal/audio_oscillator.sby.j2 : {file_type : sbyConfigTemplate}
+            - src/formal/formal.v : {file_type : verilogSource}
 
 targets:
     default: &default
@@ -15,6 +20,15 @@ targets:
         toplevel: audio_oscillator
         parameters:
             - SAMPLE_SIZE=16
+
+    symbiyosys:
+        <<: *default
+        description: Formal check of the interface
+        default_tool: symbiyosys
+        filesets_append:
+            - formal
+        tools:
+            symbiyosys:
 
 parameters:
     SAMPLE_SIZE:
