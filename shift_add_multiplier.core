@@ -1,23 +1,23 @@
 CAPI=2:
-name : local:synth:shift_add_multplier:0.1.0
+name : nordmark:synth:shift_add_multplier:0.1.0
 description: A shift-and-add-multiplier with AXI4S-compatible interface
 
 filesets:
     rtl:
         files:
-            - src/rtl/shift_and_add_multiplier.v
+            - src/rtl/shift_add_multiplier.v
         file_type: verilogSource
 
     formal:
         files:
-            - src/formal/shift_and_add_multiplier.sby.j2 : {file_type : sbyConfigTemplate}
+            - src/formal/shift_add_multiplier.sby.j2 : {file_type : sbyConfigTemplate}
             - src/formal/formal.v : {file_type : verilogSource}
 
 targets:
     default: &default
         filesets:
             - rtl
-        toplevel: shift_and_add_multiplier
+        toplevel: shift_add_multiplier
         parameters:
             - WIDTH=16
 
@@ -39,4 +39,4 @@ parameters:
 provider:
     name : github
     user : klasnordmark
-    repo : audio_oscillator
+    repo : shift_add_multiplier
